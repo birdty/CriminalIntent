@@ -151,6 +151,7 @@ public class CrimeFragment extends Fragment {
                         .getFileStreamPath(p.getFilename()).getAbsolutePath();
 
                 ImageFragment.newInstance(path).show(fm, DIALOG_IMAGE);
+
             }
         });
 
