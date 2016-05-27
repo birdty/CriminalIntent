@@ -52,6 +52,26 @@ public class CrimeFragment extends Fragment
     private ImageButton photoButton;
     private ImageView photoView;
     private Button suspectButton;
+    private Callbacks callbacks;
+
+    public interface Callbacks
+    {
+        void onCrimeUpdated(Crime crime);
+    }
+
+    @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        callbacks = (Callbacks)activity;
+    }
+
+    @Override
+    public void onDetach()
+    {
+        super.onDetach();
+        callbacks = null;
+    }
 
     public CrimeFragment() {
         // Required empty public constructor
@@ -97,6 +117,8 @@ public class CrimeFragment extends Fragment
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                             crime.setTitle(s.toString());
+                            callbacks.onCrimeUpdated(crime);
+                            getActivity().setTitle(crime.getTitle());
                     }
 
                     @Override
@@ -132,6 +154,7 @@ public class CrimeFragment extends Fragment
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         crime.setSolved(isChecked);
+                        callbacks.onCrimeUpdated(crime);
                     }
                 }
         );
@@ -250,6 +273,8 @@ public class CrimeFragment extends Fragment
 
                 crime.setPhoto(p);
 
+                callbacks.onCrimeUpdated(crime);
+
                 showPhoto();
             }
         }
@@ -273,6 +298,7 @@ public class CrimeFragment extends Fragment
 
             String suspect = c.getString(0);
             crime.setSuspect(suspect);
+            callbacks.onCrimeUpdated(crime);
             suspectButton.setText(suspect);
             c.close();
         }

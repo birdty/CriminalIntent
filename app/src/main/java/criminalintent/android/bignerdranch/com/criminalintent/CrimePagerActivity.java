@@ -10,10 +10,15 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class CrimePagerActivity extends FragmentActivity {
+public class CrimePagerActivity extends FragmentActivity implements CrimeFragment.Callbacks {
 
     private ViewPager viewPager;
     private ArrayList<Crime> crimes;
+
+    public void onCrimeUpdated(Crime crime)
+    {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

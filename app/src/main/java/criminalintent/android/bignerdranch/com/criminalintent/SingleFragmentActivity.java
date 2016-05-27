@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SingleFragmentActivity extends AppCompatActivity {
 
+    protected int getLayoutResId()
+    {
+        return R.layout.activity_fragment;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -15,7 +20,7 @@ public class SingleFragmentActivity extends AppCompatActivity {
 
         FragmentManager fm = this.getSupportFragmentManager();
 
-        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+        Fragment fragment = fm.findFragmentById(getLayoutResId());
 
         if ( fragment == null )
         {
