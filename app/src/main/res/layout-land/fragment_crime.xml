@@ -60,7 +60,7 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
     <Button
         android:id="@+id/crime_date"
         android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <CheckBox
@@ -78,6 +78,34 @@
         android:text="@string/crime_solved_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="@string/crime_suspect_text"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:id="@+id/crime_suspectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="@string/crime_report_text"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:id="@+id/crime_reportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
     </LinearLayout>
 
